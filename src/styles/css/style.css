@@ -12,6 +12,33 @@ body {
   font-weight: 400;
 }
 
+label {
+  color: #787EA7;
+}
+
+input {
+  border-radius: 9px;
+  border: none;
+  padding: 0 12px;
+  color: #787EA7;
+}
+input:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #141625;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: #141625;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F213A;
+}
+
 .home {
   display: flex;
   height: 100vh;
@@ -164,4 +191,69 @@ body {
 .nav-bar__logo svg {
   color: #FFF;
   font-size: 2rem;
+}
+
+.form {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__box {
+  position: relative;
+  height: 100vh;
+  width: 500px;
+  left: -28%;
+  background: #141625;
+  padding: 2rem 2rem;
+  overflow: auto;
+}
+.form__box form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.form__address {
+  display: flex;
+  flex-direction: column;
+}
+.form__address h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7C5DF9;
+  margin-bottom: 15px;
+}
+.form__address input {
+  margin: 10px 0;
+  height: 45px;
+  background: #1F213A;
+}
+.form__address__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form__address__container div {
+  display: flex;
+  flex-direction: column;
+}
+.form__address__container div label {
+  width: 100px;
+}
+.form__address__container div input {
+  width: 134px;
+}
+.form__person {
+  display: flex;
+  flex-direction: column;
+}
+.form__person input {
+  margin: 10px 0;
+  height: 45px;
+  background: #1F213A;
 }

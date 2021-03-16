@@ -11,3 +11,29 @@ body {
     font-size: 16px;
     font-weight: 400;
 }
+
+label {
+    color: $text-second;
+}
+
+input {
+    border-radius: 9px;
+    border: none;
+    padding: 0 12px;
+    color: $text-second;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background-color: $primary-color;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: $primary-color;
+}
+::-webkit-scrollbar-thumb {
+    background: $third-color;
+}
