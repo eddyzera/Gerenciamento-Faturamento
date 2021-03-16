@@ -1,0 +1,94 @@
+.list-invoice {
+    margin-top: 40px;
+
+    &__item {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        padding: 0 20px;
+        background: $third-color;
+        border-radius: 12px;
+        margin-bottom: 12px;
+
+            a {
+                font-size: 0;
+            }
+    }
+
+    &__status {
+        display: flex;
+    }
+
+    &__id {
+        font-size: 1rem;
+        font-weight: 500;
+
+        span {
+            color: $text-second;
+        }
+    }
+
+    &__date {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $text-second; 
+    }
+
+    &__person {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $text-second; 
+    }
+
+    &__money {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $text-primary; 
+    }
+
+    &__status--false {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ff8b0038;
+        width: 115px;
+        height: 36px;
+        border-radius: 7px;
+        padding: 0 15px;
+
+        p {
+
+            color: $pending;
+            font-weight: 600;
+            font-size: 1rem;
+            svg {
+                display: flex;
+            }
+        }
+    }
+
+    &__status--true {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #27d59e42;
+        width: 115px;
+        height: 36px;
+        border-radius: 7px;
+        padding: 0 15px;
+
+        p {
+
+            color: $paid;
+            font-weight: 600;
+            font-size: 1rem;
+            svg {
+                display: flex;
+            }
+        }
+    }
+
+}

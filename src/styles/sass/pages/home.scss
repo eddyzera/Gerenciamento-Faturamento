@@ -1,0 +1,11 @@
+.home {
+    display: flex;
+    height: 100vh;
+
+    &__container {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 95%;
+    }
+}
