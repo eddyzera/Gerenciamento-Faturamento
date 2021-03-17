@@ -13,16 +13,20 @@ export const InvocedContext = createContext({} as InvocedContextData);
 export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
 
     const [clienteData, setClienteData] = useState({} as InvocedData );
-    const [formIsOpen, setFormIsOpen] = useState(true);
+    const [formIsOpen, setFormIsOpen] = useState(false);
 
     function openForm() {
         setFormIsOpen(true)
     }
 
+    function closeForm() {
+        setFormIsOpen(false)
+    }
+
     const store = {
         clienteData,
-        formIsOpen,
-        openForm
+        openForm,
+        closeForm
     }
     return (
         <InvocedContext.Provider value={store}>

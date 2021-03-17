@@ -15,6 +15,14 @@
 
             a {
                 font-size: 0;
+                background: $primary-color;
+                transition: all 0.9s;
+                border-radius: 7px;
+
+                &:hover {
+                    background: #14162585;
+                    border-radius: 7px;
+                }
             }
     }
 

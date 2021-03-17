@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { FaTrashAlt } from "react-icons/fa";
+import { InvocedContext } from '../store/InvocedContext';
+
 
 export default function Form() {
+
+    const { closeForm } = useContext(InvocedContext)
+
     return (
         <div className="form">
             <div className="form__box">
@@ -26,15 +32,16 @@ export default function Form() {
                     </div>
 
                     <div className="form__person">
+                        <h3>Informações do Cliente</h3>
                         <label>Nome do Cliente</label>
                         <input type="text"/>
                         <label>Email do Cliente</label>
                         <input type="text"/>
                         <label>Telefone do Cliente</label>
                         <input type="text"/>
-                        <div className="form__payment__date">
+                        <div className="form__person__payment">
                             <div>
-                                <label >Data da Fatura</label>
+                                <label >Emissão da fatura</label>
                                 <input type="date"/>
                             </div>
                             <div>
@@ -47,23 +54,36 @@ export default function Form() {
                             </div>
                         </div>
 
-                        <div className="form__produtct">
-                            <h3>Descrição Produto</h3>
+                        <div className="form__product">
+                            <h3>Descrições do Produto</h3>
+                            <label>Nome do Produto</label>
                             <input type="text"/>
-                            <div className="form__list">
-                                <h3>Itens da Lista</h3>
-                                <label>Nome do Item</label>
-                                <label>Qtd.</label>
-                                <label>Preço</label>
-                                <label>Total</label>
+                        </div>
+                        <div className="form__list">
+                            <h3>Itens da Lista</h3>
+                            <div className="form__list__description">
+                                <div>
+                                    <p>Nome do item</p>
+                                    <p>Qtd</p>
+                                    <p>Preço</p>
+                                    <p>Total</p>
+                                </div>
                                 <div className="form__list__item">
                                     <input type="text"/>
-                                    <input type="number"/>
-                                    <input type="number"/>
+                                    <input type="number" className="form__count" />
+                                    <input type="number" className="form__price" />
+                                    <p className="form__total">1000.00</p>
+                                    <p className="form__trash">
+                                        <FaTrashAlt color="#787EA7" />
+                                    </p>
                                 </div>
-                                <button className="form__list__create">+ Criar novo item</button>
                             </div>
+                            <button className="form__list__create">+ Criar novo item</button>
                         </div>
+                    </div>
+                    <div className="form__btn">
+                        <button className="form__btn__cancel" onClick={closeForm} >Cancelar</button>
+                        <button className="form__btn__create">Criar</button>
                     </div>
                 </form>
             </div>

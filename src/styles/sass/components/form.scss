@@ -10,11 +10,10 @@
     align-items: center;
     &__box {
         position: relative;
-        height: 100vh;
-        width: 500px;
-        left: -28%;
+        height: 90vh;
+        width: 580px;
         background: $primary-color;
-        padding: 2rem 2rem;
+        padding: 2rem 3rem;
         overflow: auto;
 
         form {
@@ -55,7 +54,7 @@
                 }
     
                 input {
-                    width: 134px;
+                    width: 155px;
                 }
             }
         }
@@ -65,10 +64,136 @@
         display: flex;
         flex-direction: column;
 
+        h3  {
+            font-size: 1rem;
+            font-weight: 400;
+            color: $second-color;
+            margin: 15px 0;
+        }
+
         input {
             margin: 10px 0;
             height: 45px;
             background: $third-color;
+        }
+
+        &__payment {
+            display: flex;
+            align-items: center;
+            div {
+    
+                input {
+                    width: 231px;
+                }
+    
+                select {
+                    margin: 10px 0;
+                    height: 45px;
+                    width: 235px;
+                    background: $third-color;
+                    border: none;
+                    border-radius: 9px;
+                    padding: 0 12px;
+                    color: $text-second;
+                }
+            }
+    
+            div + div {
+                margin-left: 11px;
+            }
+        }
+    }
+
+
+    &__product {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__list {
+
+        &__description {
+            div {
+                display: grid;
+                grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+                grid-gap: 6px;
+                align-items: center;
+            }
+        }
+
+        &__item {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+            grid-gap: 6px;
+            align-items: center;
+        }
+
+        &__create {
+            width: 100%;
+            height: 50px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            color: $text-primary;
+            background: $third-color;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+    }
+
+    &__count {
+        width: 65px;
+    }
+
+    &__price {
+        width: 65px;
+    }
+
+    &__total {
+        background: #00000054;
+        width: 80px;
+        padding: 12px 12px;
+        border-radius: 7px;
+    }
+
+    &__trash {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__btn {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        button + button {
+            margin-left: 15px;
+        }
+
+        &__cancel {
+            border: none;
+            width: 150px;
+            height: 50px;
+            border-radius: 30px;
+            color: $text-primary;
+            background: $third-color;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        &__create {
+            border: none;
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            color: $text-primary;
+            background: $second-color;
+            cursor: pointer;
+            font-size: 1rem;
         }
     }
 }

@@ -2,8 +2,8 @@ import { ReactNode } from 'react'
 
 export interface InvocedContextData {
     clienteData : InvocedData,
-    openForm: () => void;
-    formIsOpen: boolean,
+    openForm: () => void,
+    closeForm: () => void;
 }
 
 export interface InvocedData {
