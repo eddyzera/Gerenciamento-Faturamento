@@ -326,6 +326,9 @@ input:focus {
   justify-content: center;
   cursor: pointer;
 }
+.form__trash img {
+  width: 22px;
+}
 .form__btn {
   margin: 20px 0;
   display: flex;

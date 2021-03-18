@@ -1,11 +1,34 @@
 import React, { useContext } from 'react'
-import { FaTrashAlt } from "react-icons/fa";
 import { InvocedContext } from '../store/InvocedContext';
-
 
 export default function Form() {
 
-    const { closeForm } = useContext(InvocedContext)
+    const { 
+        closeForm, 
+        loopingCreatInput,
+        loopingInput,
+        address,
+        city,
+        zip,
+        uf,
+        name,
+        email,
+        phone,
+        date,
+        paymentTerms,
+        nameProduct,
+        handleAddress,
+        handleCity,
+        handleZip,
+        handleUf,
+        handleName,
+        handleEmail,
+        handlePhone,
+        handleDate,
+        handlePaymentTerms,
+        handleNameProduct
+
+    } = useContext(InvocedContext)
 
     return (
         <div className="form">
@@ -14,19 +37,35 @@ export default function Form() {
                     <div className="form__address">
                         <h3>Informações do Endereço</h3>
                         <label>Endereço</label>
-                        <input type="text"/>
+                        <input 
+                            type="text" 
+                            value={address} 
+                            onChange={(event) => handleAddress(event.target.value)}
+                        />
                         <div className="form__address__container">
                             <div>
                                 <label>Cidade</label>
-                                <input type="text"/>
+                                <input 
+                                    type="text" 
+                                    value={city} 
+                                    onChange={(event) => handleCity(event.target.value)}
+                                    />
                             </div>
                             <div>
                                 <label>CEP</label>
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    value={zip}
+                                    onChange={(event) => handleZip(event.target.value) }
+                                />
                             </div>
                             <div>
                                 <label>Estado</label>
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    value={uf}
+                                    onChange={(event) => handleUf(event.target.value)}
+                                />
                             </div>
                         </div>
                     </div>
@@ -34,19 +73,38 @@ export default function Form() {
                     <div className="form__person">
                         <h3>Informações do Cliente</h3>
                         <label>Nome do Cliente</label>
-                        <input type="text"/>
+                        <input 
+                            type="text"
+                            value={name}
+                            onChange={(event) => handleName(event.target.value)}
+                        />
                         <label>Email do Cliente</label>
-                        <input type="text"/>
+                        <input 
+                            type="text"
+                            value={email}
+                            onChange={(event) => handleEmail(event.target.value)}
+                        />
                         <label>Telefone do Cliente</label>
-                        <input type="text"/>
+                        <input 
+                            type="text"
+                            value={phone}
+                            onChange={(event) => handlePhone(event.target.value)}
+                        />
                         <div className="form__person__payment">
                             <div>
                                 <label >Emissão da fatura</label>
-                                <input type="date"/>
+                                <input 
+                                    type="date"
+                                    value={date}
+                                    onChange={(event) => handleDate(event.target.value)}
+                                />
                             </div>
                             <div>
                                 <label >Termos de Pagamento</label>
-                                <select>
+                                <select 
+                                    value={paymentTerms} 
+                                    onChange={(event) => handlePaymentTerms(event.target.value)}
+                                >
                                     <option value="30">30 dias</option>
                                     <option value="60">60 dias</option>
                                     <option value="90">90 dias</option>
@@ -57,28 +115,31 @@ export default function Form() {
                         <div className="form__product">
                             <h3>Descrições do Produto</h3>
                             <label>Nome do Produto</label>
-                            <input type="text"/>
+                            <input 
+                                type="text"
+                                value={nameProduct}
+                                onChange={(event) => handleNameProduct(event.target.value)}
+                            />
                         </div>
                         <div className="form__list">
                             <h3>Itens da Lista</h3>
-                            <div className="form__list__description">
-                                <div>
-                                    <p>Nome do item</p>
-                                    <p>Qtd</p>
-                                    <p>Preço</p>
-                                    <p>Total</p>
+                            { loopingInput.length !== 0 && (
+                                <div className="form__list__description">
+                                    <div>
+                                        <p>Nome do item</p>
+                                        <p>Qtd</p>
+                                        <p>Preço</p>
+                                        <p>Total</p>
+                                    </div>
+                                    {loopingInput}
                                 </div>
-                                <div className="form__list__item">
-                                    <input type="text"/>
-                                    <input type="number" className="form__count" />
-                                    <input type="number" className="form__price" />
-                                    <p className="form__total">1000.00</p>
-                                    <p className="form__trash">
-                                        <FaTrashAlt color="#787EA7" />
-                                    </p>
-                                </div>
-                            </div>
-                            <button className="form__list__create">+ Criar novo item</button>
+                            )}
+                            <button 
+                                className="form__list__create" onClick={loopingCreatInput}
+                                type="button"
+                            >
+                                    + Criar novo item
+                            </button>
                         </div>
                     </div>
                     <div className="form__btn">
