@@ -130,7 +130,7 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
                 ...loopingInput,
                 <ListInput key={i} value={i} />
             ])
-            // pushArrayItemList()
+            pushArrayItemList()
         }
     }
 
