@@ -4,7 +4,6 @@ import {
     InvocedContextData, 
     ProviderPropsInvoced, 
     InvocedData, 
-    ListInputData
 } from '../utils/interfaces';
 
 import Form from '../components/Form'
@@ -28,7 +27,7 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
     const [paymentTerms, setPaymentTerm] = useState('30');
     const [nameProduct, setNameProduct] = useState('');
     const [itemList, setItemList] = useState([{ name: '', qtd: 0, price: 0}]);
-    const [itemName, setItamName] = useState('');
+    const [itemName, setItemName] = useState('');
     const [itemQtd, setItemQtd] = useState(0);
     const [itemPrice, setItemPrice] = useState(0);
     const [itemTotal, setItemTotal] = useState(0);
@@ -49,13 +48,12 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
         setDate('')
         setPaymentTerm('')
         setNameProduct('')
-        setItamName('')
+        setItemName('')
         setItemQtd(0)
         setItemPrice(0)
         setItemTotal(0)
     }
     
-
     function handleAddress(value: string) {
         setAddress(value)
     }
@@ -97,7 +95,7 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
     }
 
     function handleItemName (value: string) {
-        setItamName(value)
+        setItemName(value)
     }
 
     function handleItemQtd (value: number) {
@@ -125,7 +123,7 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
     }, [itemQtd, itemPrice])
 
     function loopingCreatInput() {
-        for(let i = 0; i < loopingInput.length; i++) {
+        for(let i = 0; i <= loopingInput.length; i++) {
             setLoopingInput([
                 ...loopingInput,
                 <ListInput key={i} value={i} />
@@ -143,12 +141,8 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
                 price: itemPrice
             }
         ])
-        setItamName('')
-        setItemPrice(0)
-        setItemQtd(0)
-        console.log(itemList)
     }
-
+    
     function deleteItem(value: number | string) {
         setLoopingInput(
             loopingInput.filter(item => item.key !== value)
@@ -190,6 +184,7 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
         handleItemQtd,
         handleItemPrice,
     }
+
     return (
         <InvocedContext.Provider value={store}>
             { children }
