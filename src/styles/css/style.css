@@ -308,15 +308,18 @@ input:focus {
   font-weight: 600;
   margin-top: 20px;
 }
+.form__name {
+  width: 155px;
+}
 .form__count {
   width: 65px;
 }
 .form__price {
-  width: 65px;
+  width: 100px;
 }
 .form__total {
   background: #00000054;
-  width: 80px;
+  width: 95px;
   padding: 12px 12px;
   border-radius: 7px;
 }

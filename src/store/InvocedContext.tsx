@@ -1,9 +1,10 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 import { 
     InvocedContextData, 
     ProviderPropsInvoced, 
-    InvocedData 
+    InvocedData, 
+    ListInputData
 } from '../utils/interfaces';
 
 import Form from '../components/Form'
@@ -24,8 +25,13 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState('');
-    const [paymentTerms, setPaymentTerm] = useState('');
+    const [paymentTerms, setPaymentTerm] = useState('30');
     const [nameProduct, setNameProduct] = useState('');
+    const [itemList, setItemList] = useState([{ name: '', qtd: 0, price: 0}]);
+    const [itemName, setItamName] = useState('');
+    const [itemQtd, setItemQtd] = useState(0);
+    const [itemPrice, setItemPrice] = useState(0);
+    const [itemTotal, setItemTotal] = useState(0);
 
     function openForm() {
         setFormIsOpen(true)
@@ -33,6 +39,20 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
 
     function closeForm() {
         setFormIsOpen(false)
+        setAddress('')
+        setCity('')
+        setZip('')
+        setUf('')
+        setName('')
+        setEmail('')
+        setPhone('')
+        setDate('')
+        setPaymentTerm('')
+        setNameProduct('')
+        setItamName('')
+        setItemQtd(0)
+        setItemPrice(0)
+        setItemTotal(0)
     }
     
 
@@ -76,6 +96,33 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
         setNameProduct(value)
     }
 
+    function handleItemName (value: string) {
+        setItamName(value)
+    }
+
+    function handleItemQtd (value: number) {
+        setItemQtd(value)
+    }
+
+    function handleItemPrice (value: number) {
+        setItemPrice(value)
+    }
+
+    useEffect(() => {
+        let initialValue = itemQtd
+
+        if (initialValue >= itemQtd) {
+            setItemTotal(itemQtd * itemPrice)
+        } else if (initialValue <= itemQtd) {
+            setItemTotal(itemQtd / itemPrice)
+        }
+        
+        if(!itemPrice) {
+            setItemTotal(0)
+            setItemPrice(0)
+        }
+
+    }, [itemQtd, itemPrice])
 
     function loopingCreatInput() {
         for(let i = 0; i < loopingInput.length; i++) {
@@ -83,7 +130,23 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
                 ...loopingInput,
                 <ListInput key={i} value={i} />
             ])
+            // pushArrayItemList()
         }
+    }
+
+    function pushArrayItemList() {
+        setItemList([
+            ...itemList,
+            {
+                name: itemName,
+                qtd: itemQtd,
+                price: itemPrice
+            }
+        ])
+        setItamName('')
+        setItemPrice(0)
+        setItemQtd(0)
+        console.log(itemList)
     }
 
     function deleteItem(value: number | string) {
@@ -118,7 +181,14 @@ export function InvocedProvider ({ children }: ProviderPropsInvoced ) {
         handlePhone,
         handleDate,
         handlePaymentTerms,
-        handleNameProduct
+        handleNameProduct,
+        itemName,
+        itemQtd,
+        itemPrice,
+        itemTotal,
+        handleItemName,
+        handleItemQtd,
+        handleItemPrice,
     }
     return (
         <InvocedContext.Provider value={store}>

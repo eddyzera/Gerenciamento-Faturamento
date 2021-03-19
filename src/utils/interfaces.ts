@@ -26,7 +26,23 @@ export interface InvocedContextData {
     handlePhone: (values: string) => void,
     handleDate: (values: string) => void,
     handlePaymentTerms: (values: string) => void,
-    handleNameProduct: (values: string) => void
+    handleNameProduct: (values: string) => void,
+    itemName: string,
+    itemQtd: number,
+    itemPrice: number,
+    itemTotal: number,
+    handleItemName: (value: string) => void,
+    handleItemQtd: (value: number) => void,
+    handleItemPrice: (value: number) => void,
+}
+
+export interface ListInputData {
+    itemList: {
+            itemName: string,
+            qtd: number,
+            price: number,
+        }
+    
 }
 
 export interface InvocedData {
@@ -41,13 +57,7 @@ export interface InvocedData {
     date: string,
     paymentTerms: string,
     productName: string,
-    item_list: [
-        {
-            item_name: string,
-            qtd: number,
-            total: number
-        }
-    ]
+    itemList: Array<ListInputData>
 }
 
 export interface ProviderPropsInvoced {
